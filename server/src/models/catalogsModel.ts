@@ -40,7 +40,7 @@ export const insert = async(formData:Record<string, string>) => {
 
 export const destroy = async(catalogIds:string[]) => {
     const inClause = catalogIds.map((id)=> `"${id}"`).join(',')
-    await queryDB(`UPDATE catalogs SET deleted_at = CURRENT_TIMESTAMP AND is_primary = 0 WHERE id IN (${inClause})`); 
+    await queryDB(`UPDATE catalogs SET deleted_at = CURRENT_TIMESTAMP, is_primary = 0 WHERE id IN (${inClause})`); 
 }
 
 export const index = async() => {
