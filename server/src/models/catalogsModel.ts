@@ -34,7 +34,7 @@ export const destroy = async(catalogIds:string[]) => {
     await queryDB(`UPDATE catalogs SET deleted_at = CURRENT_TIMESTAMP AND is_primary = 0 WHERE id IN (${inClause})`); 
 }
 
-export const index = async(catalogId:string) => {
-    await queryDB(`UPDATE catalogs SET indexed_at = CURRENT_TIMESTAMP WHERE id = ${catalogId}`); 
+export const index = async() => {
+    await queryDB(`UPDATE catalogs SET indexed_at = CURRENT_TIMESTAMP`); 
 }
 

@@ -30,10 +30,7 @@ export const updateCatalog = async (req: Request, res: Response) => {
         const catalogId = req.params.catalogId
         const formData = req.body
         formData.is_primary = formData.is_primary ? 1 : 0
-        const promises = []
-        promises.push(CatalogsModel.update(formData, catalogId))
-        promises.push(CatalogsModel.index(catalogId))
-        await Promise.all(promises)
+        await CatalogsModel.update(formData, catalogId)
         res.send({message:'success'})
     }catch(error){
         console.error(error)

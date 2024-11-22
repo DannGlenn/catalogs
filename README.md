@@ -26,6 +26,10 @@ It's highly recommended to download `SQLite3 Editor` extension to view /database
 
 Was written as a sample with support for 1 customer, additional customers support would exceed the scope of the task
 
+Ideally, cron jobs would run on a dedicated service, but for the sake of the demonstration it's running on the api server
+
+DB timezone is UTC
+
 Visual design was kept to a minimum since no UI design file was provided
 
 
