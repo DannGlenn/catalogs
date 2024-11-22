@@ -4,9 +4,11 @@ import * as CatalogsModel from "../models/catalogsModel"
 
 const CUSTOMER_ID = 1 //for the purpose of the assignment I'll use a single customer
 
-export const getCatalogs = async (req: Request, res: Response) => {
+export const getFilteredCatalogs = async (req: Request, res: Response) => {
     try{
-        const catalogs = await CatalogsModel.getAll();
+        const query = String(req.query.query)
+        const isMultiLocale = req.query.isMultiLocale === "true"
+        const catalogs = await CatalogsModel.getFiltered(query, isMultiLocale);
         res.send({catalogs})
     }catch(error){
         console.error(error)

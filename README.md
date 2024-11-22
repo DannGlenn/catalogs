@@ -30,6 +30,8 @@ Ideally, cron jobs would run on a dedicated service, but for the sake of the dem
 
 DB timezone is UTC
 
+Note that all queries are sanitized before execution
+
 Visual design was kept to a minimum since no UI design file was provided
 
 

@@ -5,6 +5,15 @@ export const getAll = async() => {
     return await queryDB('SELECT * FROM catalogs WHERE deleted_at IS NULL')
 }
 
+export const getFiltered = async(query='', isMultiLocale:boolean) => {
+    let arrayLengthClause = ''
+    if(isMultiLocale){
+        arrayLengthClause = `AND json_array_length(locale_ids) > 1`
+    }
+
+    return await queryDB(`SELECT * FROM catalogs WHERE name LIKE "%${query}%" ${arrayLengthClause} AND deleted_at IS NULL`)
+}
+
 export const getSingle = async(catalogId:string) => {
     const catalog = await queryDB(`SELECT * FROM catalogs WHERE id = ${catalogId} AND deleted_at IS NULL LIMIT 1`); 
     return catalog[0]

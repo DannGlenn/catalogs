@@ -3,7 +3,8 @@ import * as CatalogsController from "../controllers/CatalogsController";
 
 const CatalogsRouter: Router = Router();
 
-CatalogsRouter.get('/', CatalogsController.getCatalogs);
+CatalogsRouter.get('/', CatalogsController.getFilteredCatalogs);
+
 CatalogsRouter.delete('/', CatalogsController.deleteCatalogs);
 
 CatalogsRouter.get('/:catalogId', CatalogsController.getCatalog);
