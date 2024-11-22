@@ -19,7 +19,15 @@ on both client and server
 ```bash
 npm start
 ```  
-on both client and server(`sudo npm start` if nodemon watchers exceeded)
+on /client
+
+and:
+
+```bash
+sudo npm start
+```  
+
+on /server (to ensure nodemon watchers not exceeded and read write permissions are given to database.db)
 
 5. On your browser, navigate to http://localhost:3000/catalogs
 
