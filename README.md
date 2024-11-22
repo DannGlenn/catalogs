@@ -3,6 +3,9 @@
 ## Installation and Setup
 
 1. Clone the repository
+```bash
+git clone https://github.com/DannGlenn/catalogs.git
+``` 
 
 2. Run 
 ```bash
@@ -16,9 +19,9 @@ on both client and server
 ```bash
 npm start
 ```  
-on both client and server(`sudo npm start` if fails)
+on both client and server(`sudo npm start` if nodemon watchers exceeded)
 
-5. On your browser, naviagte to http://localhost:3000/catalogs
+5. On your browser, navigate to http://localhost:3000/catalogs
 
 ## Notes
 
@@ -26,11 +29,13 @@ It's highly recommended to download `SQLite3 Editor` extension to view /database
 
 Was written as a sample with support for 1 customer, additional customers support would exceed the scope of the task
 
-Ideally, cron jobs would run on a dedicated service, but for the sake of the demonstration it's running on the api server
+Visual prompts for server errors also would exceed the scope of the task, for the sake of the demo console errors are triggered
+
+Ideally, cron jobs would run on a dedicated service, but for the sake of the demo it's running on the api server, cron expression is set to run at mid-night
 
 DB timezone is UTC
 
-Note that all queries are sanitized before execution
+Note that all queries are sanitized before execution to void injections
 
 Visual design was kept to a minimum since no UI design file was provided
 
