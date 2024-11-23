@@ -74,7 +74,8 @@ export const EditCatalogPage: React.FC = () => {
       if (response.ok) {
         navigate(`/catalogs`);
       } else {
-        throw new Error("Failed to update catalog");
+        const errorMessage = await response.text();
+        throw new Error(errorMessage || "Failed to update catalog");
       }
     } catch (error) {
       console.error("Error submitting form:", error);

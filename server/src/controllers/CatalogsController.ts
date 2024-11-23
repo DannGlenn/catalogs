@@ -1,6 +1,7 @@
 import { queryDB } from "../../db"
 import { Request, Response } from 'express';
 import * as CatalogsModel from "../models/catalogsModel"
+import { errorMessage } from "../utils/queryUtils";
 
 const CUSTOMER_ID = 1 //for the purpose of the assignment I'll use a single customer
 
@@ -34,9 +35,9 @@ export const updateCatalog = async (req: Request, res: Response) => {
         formData.is_primary = formData.is_primary ? 1 : 0
         await CatalogsModel.update(formData, catalogId)
         res.send({message:'success'})
-    }catch(error){
+    }catch(error:any){
         console.error(error)
-        res.status(500).send()
+        res.status(500).send({message:errorMessage[error.message]})
     }
 }
 

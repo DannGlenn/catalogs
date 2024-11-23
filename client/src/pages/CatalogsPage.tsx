@@ -55,6 +55,7 @@ export const CatalogsPage: React.FC = () => {
             body: JSON.stringify(recordsToDelete),
         });
         if (response.ok) {
+            //sacrificing some performance for added robustness by refetching the data (the alternative would be to hide deleted rows in the ui)
             fetchData(debouncedInputValue)
         } else {
             throw new Error("Failed to delete catalog");
